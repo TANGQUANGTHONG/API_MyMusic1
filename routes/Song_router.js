@@ -40,4 +40,23 @@ router.get('/get_song_by_genre', async (req, res) => {
     }
 });
 
+// Route để lấy bài hát theo ID
+router.get('/get_song_by_id/:id', async (req, res) => {
+    const { id } = req.params; // Lấy id từ tham số
+
+    try {
+        const song = await Song_ne.findById(id); // Sử dụng findById để tìm bài hát
+        if (song) {
+            res.status(200).json(song); // Trả về thông tin bài hát
+        } else {
+            res.status(404).json({ message: 'Không tìm thấy bài hát với ID này' }); // Không tìm thấy
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Không thể tải bài hát', error: error.message });
+    }
+});
+
+
+
+
 module.exports = router;
