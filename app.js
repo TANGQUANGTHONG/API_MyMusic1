@@ -21,7 +21,7 @@ app.use(cookieParser());  // Phân tích cookies
 app.use(express.static(path.join(__dirname, 'public')));  // Thư mục tĩnh
 
 // Kết nối MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/API_MyMusic', {
+mongoose.connect('mongodb+srv://quangthong2004:thong2004@cluster0.vpo8x.mongodb.net/API_MyMusic', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
